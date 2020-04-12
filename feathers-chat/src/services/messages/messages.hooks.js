@@ -5,8 +5,8 @@ const setTimestamp = name => {
     context.data[name] = new Date();
 
     return context;
-  }
-}
+  };
+};
 
 const processMessage = require('../../hooks/process-message');
 

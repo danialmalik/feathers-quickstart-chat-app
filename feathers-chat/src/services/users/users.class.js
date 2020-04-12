@@ -12,10 +12,11 @@ exports.Users = class Users extends Service {
     const { email, password, githubId } = data;
 
     // Gravatar uses MD5 hashes from an email address (all lowercase) to get the image
+    let hash;
     try{
-    const hash = crypto.createHash('md5').update(email.toLowerCase()).digest('hex');
+      hash = crypto.createHash('md5').update(email.toLowerCase()).digest('hex');
     } catch (error) {
-        console.error('Could not get email from github API');
+      console.error('Could not get email from github API');
     }
     // The full avatar URL
     const avatar = `${gravatarUrl}/${hash}?${query}`;
